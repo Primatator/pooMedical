@@ -2,7 +2,8 @@
 interface Transmettre {
 
     public function dispenseAvanceFrais(){
-        $this->tarif=$tarif+ $honoraires + $remboursement;
+
+        dispenseAvanceFrais()=$this->tarif+ $this->honoraires + $this->remboursement;
 
 
     };
