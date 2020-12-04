@@ -5,7 +5,7 @@ abstract class ActeMedical implements Transmettre {
     protected $numSecu;
     protected $codeMutuelle;
     protected $tauxRemboursement;
-    protected $tarif;
+    protected $tarif=25;
     
 
     function __construct(string $nom, int $secu, int $mutuelle, float $remboursement){
@@ -17,23 +17,16 @@ abstract class ActeMedical implements Transmettre {
 
     }
 
-    public function prescrire(){
+    public function prescrire():string {
         return "Paracetamol 1000";
 
 
     }
 
-
-
-    public function facturer(ActeMedical $tarif): float{
-        $this->tarif=($tarif-($tarif*$remboursement));
-        if($this->honoraires>0){
-            $this->tarif=$tarif+$honoraires;
-
-        return $tarif;
-        }
-    
+    public function facturer(): float{
+        return $this->tarif=$tarif;
         
+      
     }
 
     
@@ -72,3 +65,4 @@ abstract class ActeMedical implements Transmettre {
         return $this->tarif;
     }
 }
+?>

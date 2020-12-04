@@ -1,7 +1,7 @@
 <?php
 class ActeNonConventionne extends ActeMedical{
 
-    private $honorairesSupp;
+    private $honorairesSupp=40;
 
 
     function __construct(string $nom=, int $secu, int $mutuelle, $remboursement=0.7) {
@@ -10,8 +10,13 @@ class ActeNonConventionne extends ActeMedical{
     }
 
     public function facturer(){
-        $this->tarif=$tarif+$this->$honorairesSupp;
+        return $this->tarif+$this->$honorairesSupp;
     }
+    public abstract function dispenseAvanceFrais(){
+        return $this->facturer() + $this->$remboursement;
+
+    }
+
 
     function setHonoraires(string $honorairesSupp){
         $this->honoraires=$honorairesSupp;
@@ -20,3 +25,4 @@ class ActeNonConventionne extends ActeMedical{
         return $this->honoraires;
     }
 }
+?>

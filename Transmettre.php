@@ -1,10 +1,8 @@
 <?php
 interface Transmettre {
 
-    public function dispenseAvanceFrais(){
+    public abstract function dispenseAvanceFrais():float;
 
-        dispenseAvanceFrais()=$this->tarif+ $this->honoraires + $this->remboursement;
-
-
-    };
+        
 }
+?>
