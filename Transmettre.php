@@ -1,4 +1,4 @@
 <?php
 interface Transmettre {
-    function dispenseAvanceFrais();
+    public function dispenseAvanceFrais();
 }
