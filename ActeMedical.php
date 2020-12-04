@@ -7,17 +7,16 @@ abstract class ActeMedical {
     protected $tauxRemboursement;
     protected $tarif;
 
-    function __construct(string $nom, int $secu, bool $mutuelle, string $remboursement, int $tarif=25){
+    function __construct(string $nom, int $secu, int $mutuelle, float $remboursement, int $tarif=25){
         $this->nomPatient=$nom;
         $this->numSecu=$secu;
-        $this->codeMutuelle=true;
+        $this->codeMutuelle=$mutuelle;
         $this->tauxRemboursement=$remboursement;
-        $this->tarif=$tarif:
+        $this->tarif=$tarif;
 
     }
 
     public function prescrire(){
-        if($this->mutuelle)
 
 
     }
@@ -45,10 +44,10 @@ abstract class ActeMedical {
         return $this->secu;
     }
 
-    function setMutuelle(bool $codeMutuelle){
+    function setMutuelle(int $codeMutuelle){
         $this->mutuelle=$codeMutuelle;
     }
-    function isMutuelle(): ?bool {
+    function getMutuelle() {
         return $this->mutuelle;
     }
 
