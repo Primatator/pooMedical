@@ -1,29 +1,37 @@
 <?php
 
-abstract class ActeMedical {
+abstract class ActeMedical implements Transmettre {
     protected $nomPatient;
     protected $numSecu;
     protected $codeMutuelle;
     protected $tauxRemboursement;
     protected $tarif;
+    
 
-    function __construct(string $nom, int $secu, int $mutuelle, float $remboursement, int $tarif=25){
+    function __construct(string $nom, int $secu, int $mutuelle, float $remboursement){
         $this->nomPatient=$nom;
         $this->numSecu=$secu;
         $this->codeMutuelle=$mutuelle;
         $this->tauxRemboursement=$remboursement;
-        $this->tarif=$tarif;
+    
 
     }
 
     public function prescrire(){
+        return "Paracetamol 1000";
 
 
     }
 
 
 
-    public function facturer(int $tarif){
+    public function facturer(ActeMedical $tarif): float{
+        $this->tarif=($tarif-($tarif*$remboursement));
+        if($this->honoraires>0){
+            $this->tarif=$tarif+$honoraires;
+
+        return $tarif;
+        }
     
         
     }
@@ -51,10 +59,16 @@ abstract class ActeMedical {
         return $this->mutuelle;
     }
 
-    function setRemboursement(int $tauxRembousement){
+    function setRemboursement(float $tauxRemboursement){
         $this->remboursement=$tauxRemboursement;
     }
     function getRemboursement(){
         return $this->remboursement;
+    }
+    function setTarif(float $tarif){
+        $this->tarif=$tarif;
+    }
+    function getTarif(){
+        return $this->tarif;
     }
 }

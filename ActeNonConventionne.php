@@ -1,15 +1,15 @@
 <?php
 class ActeNonConventionne extends ActeMedical{
 
-    private $honorairesSupp=float 40;
+    private $honorairesSupp;
 
 
-    function __construct(float $honorairesSupp=40, string $nom="Mur", int $secu=153685426841, string $mutuelle="4254DH98624", float $remboursement=0.7, int $tarif) {
-        parent:: __construct($nom, $secu, $mutuelle, $remboursement, $tarif);
+    function __construct(string $nom=, int $secu, int $mutuelle, float $remboursement=0.7) {
+        parent:: __construct($nom, $secu, $mutuelle, $remboursement);
 
     }
 
-    public function facturer(int $tarif){
+    public function facturer(){
         $this->tarif=$tarif+$honorairesSupp;
     }
 

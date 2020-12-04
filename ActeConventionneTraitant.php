@@ -1,12 +1,12 @@
 <?php
 class ActeConventionneTraitant extends ActeMedical{
 
-    function __construct((string $nom="Patate", int $secu=123456789654, string $mutuelle="LJY159654", float $remboursement=0.7, int $tarif) {
-        parent:: __construct($nom, $secu, $mutuelle, $remboursement, $tarif);
+    function __construct((string $nom=, int $secu, int $mutuelle, float $remboursement=0.7) {
+        parent:: __construct($nom, $secu, $mutuelle, $remboursement);
 
 
     }
-    public function facturer(int $tarif){
+    public function facturer(){
         $this->tarif=$tarif;
     }
 }
