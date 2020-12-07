@@ -5,7 +5,7 @@ abstract class ActeMedical implements Transmettre {
     protected $numSecu;
     protected $codeMutuelle;
     protected $tauxRemboursement;
-    protected $tarif=25;
+    protected static $tarif=25;
     
 
     function __construct(string $nom, int $secu, int $mutuelle, float $remboursement){
@@ -24,10 +24,11 @@ abstract class ActeMedical implements Transmettre {
     }
 
     public function facturer(): float{
-        return $this->tarif=$tarif;
+        return self::$tarif;
         
       
     }
+    public abstract function dispenseAvanceFrais():float;
 
     
     
@@ -59,10 +60,10 @@ abstract class ActeMedical implements Transmettre {
         return $this->remboursement;
     }
     function setTarif(float $tarif){
-        $this->tarif=$tarif;
+        self::$tarif=$tarif;
     }
     function getTarif(){
-        return $this->tarif;
+        return self::$tarif;
     }
 }
 ?>

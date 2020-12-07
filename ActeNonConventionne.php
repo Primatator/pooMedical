@@ -10,11 +10,11 @@ class ActeNonConventionne extends ActeMedical{
     }
 
     public function facturer(){
-        return $this->tarif+$this->$honorairesSupp;
+        return $this->tarif+$this->honoraires;
     }
-    public abstract function dispenseAvanceFrais(){
-        return $this->facturer() + $this->$remboursement;
+    public function dispenseAvanceFrais():float{
 
+        return  $this->tarif-$this->tarif*$this->remboursement+ $this->honoraires;
     }
 
 

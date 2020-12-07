@@ -9,9 +9,9 @@ class ActeConventionneNonTraitant extends ActeMedical{
     public function facturer(){
         $this->tarif=$tarif;
     }
-    public abstract function dispenseAvanceFrais(){
+     public function dispenseAvanceFrais():float{
 
-        $this->tarif =$this->tarif + $this->remboursement;
+        return  $this->tarif-$this->tarif*$this->remboursement;
     }
 
 
